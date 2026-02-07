@@ -48,6 +48,7 @@ Trained on synthetic UPI transaction dataset (2024)
 
 📂 Project Structure
 upi-fraud-detection/
+
 │
 ├── app.py                 # Flask backend
 ├── model.pkl              # Trained ML pipeline
@@ -116,6 +117,7 @@ POST /predict
 Request (JSON):
 
 {
+  
   "amount": 5000,
   "transaction_type": "P2P",
   "merchant_category": "Retail",
@@ -130,6 +132,7 @@ Request (JSON):
   "hour_of_day": 14,
   "day_of_week": "Monday",
   "is_weekend": 0
+   
 }
 
 Response:
