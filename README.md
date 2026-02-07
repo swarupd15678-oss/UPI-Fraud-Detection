@@ -184,9 +184,9 @@ This project is licensed under the **MIT License**.
 
 ## 💬 Contact
 
-Created by **Your Name**
-📧 Email: [your.email@example.com](mailto:your.email@example.com)
-🔗 GitHub: [https://github.com/yourusername](https://github.com/yourusername)
+Created by Swarup Das
+📧 Email: [your.email@example.com](mailto:your.swarupd15678@gmail.com)
+🔗 GitHub: [https://github.com/yourusername](https://github.com/swarupd12678)
 
 If you like this project, don’t forget to ⭐ the repo!
 
