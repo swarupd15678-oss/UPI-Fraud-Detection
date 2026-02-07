@@ -171,9 +171,9 @@ It should not be used as a production-grade fraud detection system without furth
 
 👤 Author
 
-Created By Codecrafters 
+Created By Codecrafters👨‍💻 
 
 🎓 B.Tech
 
-💡 Machine Learning & Data Enthusiastic 
+💡 Machine Learning & Data Enthusiastics
 
