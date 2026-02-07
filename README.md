@@ -185,7 +185,7 @@ This project is licensed under the **MIT License**.
 ## 💬 Contact
 
 Created by Swarup Das
-📧 Email: [your.swarupd15678@gmail.com](mailto:your.swarupd15678@gmail.com)
+📧 Email: [swarupd15678@gmail.com](mailto:swarupd15678@gmail.com)
 🔗 GitHub: [https://github.com/swarupd15678-oss](https://github.com/swarupd15678-oss)
 
 If you like this project, don’t forget to ⭐ the repo!
