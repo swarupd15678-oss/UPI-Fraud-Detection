@@ -171,7 +171,7 @@ It should not be used as a production-grade fraud detection system without furth
 
 👤 Author
 
-Your Name
-🎓 B.Tech / MCA / M.Sc (your degree)
-💡 Machine Learning & Data Science Enthusiast
-📫 LinkedIn | GitHub
+Created By Codecrafters 
+🎓 B.Tech
+💡 Machine Learning & Data Enthusiastic 
+
