@@ -1,192 +1,177 @@
-# UPI-Fraud-Detection
-A machine learning–powered UPI fraud detection system that analyzes transaction patterns to identify suspicious and fraudulent activities.
-# 🚨 UPI Fraud Detector
+🚨 UPI Fraud Detection System
 
-A machine learning–powered system to detect **fraudulent UPI (Unified Payments Interface) transactions** in real time or batch mode. This project is designed for **learning, research, hackathons, and portfolio use**, and demonstrates how financial fraud detection systems are built using data analytics and ML.
+A Machine Learning–powered web application that detects potentially fraudulent UPI transactions in real time.
+Built using Python, Flask, Scikit-learn, Bootstrap, and JavaScript, this system takes transaction details from a user-friendly UI and predicts whether the transaction is Safe or Fraudulent, along with a risk probability.
 
----
+📌 Features
 
-## 📌 Features
+✅ Real-time fraud prediction
 
-* ✅ Detects **fraudulent UPI transactions**
-* 📊 Supports **rule-based + ML-based detection**
-* ⚡ Real-time & batch prediction support
-* 🤖 Uses supervised learning models
-* 🧠 Feature engineering inspired by real banking systems
-* 📁 Easy-to-understand project structure
+📊 Machine Learning classification model
 
----
+🌐 Interactive web interface (Bootstrap 5)
 
-## 🏗️ System Architecture
+🔄 REST API (/predict) for model inference
 
-```
-User / Transaction Stream
-        ↓
-Data Preprocessing
-        ↓
-Feature Engineering
-        ↓
-Fraud Detection Engine
-   ├── Rule-Based Checks
-   └── ML Model Prediction
-        ↓
-Fraud / Legitimate Output
-```
+🧠 Uses transaction behavior, user demographics, device & network info
 
----
+📈 Returns fraud probability score
 
-## 🧪 Fraud Detection Techniques
+🛠️ Tech Stack
+Frontend
 
-### 🔹 Rule-Based Detection
+HTML5
 
-* High transaction amount
-* Multiple rapid transactions
-* Blacklisted UPI IDs
-* Unusual transaction time
-* Location mismatch
+CSS3
 
-### 🔹 Machine Learning Models
+Bootstrap 5
 
-* Logistic Regression
-* Random Forest
-* XGBoost (optional)
-* Isolation Forest (for anomaly detection)
+JavaScript (Fetch API)
 
----
+Backend
 
-## 📂 Project Structure
+Python
 
-```
-UPI-Fraud-Detector/
+Flask
+
+Pandas
+
+Scikit-learn
+
+Pickle (model serialization)
+
+Machine Learning
+
+Supervised Classification Model
+
+Trained on synthetic UPI transaction dataset (2024)
+
+📂 Project Structure
+upi-fraud-detection/
 │
-├── data/
-│   ├── raw_transactions.csv
-│   └── processed_data.csv
+├── app.py                 # Flask backend
+├── model.pkl              # Trained ML pipeline
+├── requirements.txt       # Python dependencies
 │
-├── notebooks/
-│   └── eda.ipynb
+├── templates/
+│   └── index.html         # Frontend UI
 │
-├── src/
-│   ├── preprocess.py
-│   ├── feature_engineering.py
-│   ├── train_model.py
-│   ├── predict.py
-│   └── rules.py
+├── static/
+│   └── app.css            # Custom styling
 │
-├── models/
-│   └── fraud_model.pkl
+├── dataset/
+│   └── upi_transactions_2024.csv
 │
-├── app.py
-├── requirements.txt
 └── README.md
-```
+📊 Dataset Description
 
----
+The model is trained on a UPI transaction dataset containing features such as:
 
-## 🧠 Features Used for Detection
+Transaction amount (INR)
 
-* Transaction amount
-* Transactions per minute
-* Sender & receiver risk score
-* Time of transaction
-* Device ID / IP consistency
-* Location variance
-* Merchant category
+Transaction type (P2P / P2M)
 
----
+Merchant category
 
-## 🚀 Getting Started
+Transaction status
 
-### 1️⃣ Clone the Repository
+Sender & receiver age group
 
-```bash
-git clone https://github.com/yourusername/UPI-Fraud-Detector.git
-cd UPI-Fraud-Detector
-```
+Sender state
 
-### 2️⃣ Install Dependencies
+Sender & receiver bank
 
-```bash
+Device type (New / Old)
+
+Network type (4G / 5G / WiFi)
+
+Time-based features:
+
+Hour of day
+
+Day of week
+
+Weekend indicator
+
+Target variable:
+
+fraud (0 = Safe, 1 = Fraud)
+
+🚀 How to Run Locally
+1️⃣ Clone the Repository
+git clone https://github.com/your-username/upi-fraud-detection.git
+cd upi-fraud-detection
+2️⃣ Create Virtual Environment (Optional but Recommended)
+python -m venv venv
+source venv/bin/activate        # On Windows: venv\Scripts\activate
+3️⃣ Install Dependencies
 pip install -r requirements.txt
-```
-
-### 3️⃣ Train the Model
-
-```bash
-python src/train_model.py
-```
-
-### 4️⃣ Run Fraud Detection
-
-```bash
-python src/predict.py
-```
-
-OR (for web demo)
-
-```bash
+4️⃣ Run the Flask App
 python app.py
-```
+5️⃣ Open in Browser
+http://127.0.0.1:5000/
+🔌 API Endpoint
+POST /predict
 
----
+Request (JSON):
 
-## 📈 Model Performance (Sample)
+{
+  "amount": 5000,
+  "transaction_type": "P2P",
+  "merchant_category": "Retail",
+  "transaction_status": "Success",
+  "sender_age_group": "26-35",
+  "receiver_age_group": "36-45",
+  "sender_state": "Maharashtra",
+  "sender_bank": "SBI",
+  "receiver_bank": "HDFC",
+  "device_type": "Old",
+  "network_type": "4G",
+  "hour_of_day": 14,
+  "day_of_week": "Monday",
+  "is_weekend": 0
+}
 
-| Metric    | Score |
-| --------- | ----- |
-| Accuracy  | 96%   |
-| Precision | 94%   |
-| Recall    | 92%   |
-| F1 Score  | 93%   |
+Response:
 
----
+{
+  "fraud": 1,
+  "probability": "87.32%"
+}
+🖥️ User Interface Preview
 
-## ⚠️ Disclaimer
+Clean single-page UI
 
-This project uses **synthetic or anonymized data** and is intended **for educational purposes only**. It is **not production-ready** and should not be used directly in real banking systems.
+Dropdowns for categorical inputs
 
----
+Automatic time & day detection
 
-## 🔮 Future Enhancements
+Fraud result highlighted with color:
 
-* 🔐 Integration with live UPI APIs (sandbox)
-* 🧾 Graph-based fraud detection
-* 🤖 Deep learning (LSTM for transaction sequences)
-* 📱 Mobile app integration
-* ☁️ Deployment using Docker & Cloud
+🟢 Green → Safe Transaction
 
----
+🔴 Red → Fraud Detected
 
-## 🤝 Contributing
+⚠️ Disclaimer
 
-Contributions are welcome!
+This project is intended for educational and demonstration purposes only.
+It should not be used as a production-grade fraud detection system without further validation, security hardening, and regulatory compliance.
 
-1. Fork the repo
-2. Create a new branch
-3. Commit changes
-4. Open a Pull Request
+📌 Future Enhancements
 
----
+🔐 User authentication
 
-## 📜 License
+📊 Transaction history dashboard
 
-This project is licensed under the **MIT License**.
+🧠 Deep learning model
 
----
+🌍 Geo-location based risk analysis
 
-## ⭐ Acknowledgements
+☁️ Cloud deployment (AWS / GCP / Azure)
 
-* RBI & NPCI public fraud reports
-* Kaggle fraud datasets
-* Scikit-learn documentation
+👤 Author
 
----
-
-## 💬 Contact
-
-Created by Swarup Das
-📧 Email: [swarupd15678@gmail.com](mailto:swarupd15678@gmail.com)
-🔗 GitHub: [https://github.com/swarupd15678-oss](https://github.com/swarupd15678-oss)
-
-If you like this project, don’t forget to ⭐ the repo!
-
+Your Name
+🎓 B.Tech / MCA / M.Sc (your degree)
+💡 Machine Learning & Data Science Enthusiast
+📫 LinkedIn | GitHub
