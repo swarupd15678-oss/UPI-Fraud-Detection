@@ -99,7 +99,7 @@ fraud (0 = Safe, 1 = Fraud)
 
 🚀 How to Run Locally
 1️⃣ Clone the Repository
-git clone https://github.com/your-username/upi-fraud-detection.git
+git clone https://github.com/swarupd15678-oss/upi-fraud-detection.git
 cd upi-fraud-detection
 2️⃣ Create Virtual Environment (Optional but Recommended)
 python -m venv venv
