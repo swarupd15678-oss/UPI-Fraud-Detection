@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Fraud Detection</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4">
+            <h2 class="text-center text-primary mb-4">
+                UPI Fraud Detection System
+            </h2>
+
+            <form id="upiForm">
+
+                <!-- Transaction Type -->
+                <div class="mb-3">
+                    <label class="form-label">Transaction Type</label>
+                    <select id="transaction_type" class="form-select">
+                        <option value="P2P">P2P</option>
+                        <option value="P2M">P2M</option>
+                        <option value="Recharge">Recharge</option>
+                        <option value="Bill Payment">Bill Payment</option>
+                    </select>
+                </div>
+
+                <!-- Merchant Category -->
+                <div class="mb-3">
+                    <label class="form-label">Merchant Category</label>
+                    <select id="merchant_category" class="form-select">
+                        <option>Select Category</option>
+                        <option value="Education">Education</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Food">Food</option>
+                        <option value="Fuel">Fuel</option>
+                        <option value="Grocery">Grocery</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Other">Other</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Utilities">Utilities</option>
+                    </select>
+                </div>
+
+                <!-- Amount -->
+                <div class="mb-3">
+                    <label class="form-label">Transaction Amount (₹)</label>
+                    <input type="number" id="amount" class="form-control" required>
+                </div>
+
+                <!-- Transaction Status -->
+                <div class="mb-3">
+                    <label class="form-label">Transaction Status</label>
+                    <select id="transaction_status" class="form-select">
+                        <option value="Success">Success</option>
+                        <option value="Failed">Failed</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                </div>
+
+                <!-- Sender Age Group -->
+                <div class="mb-3">
+                    <label class="form-label">Sender Age Group</label>
+                    <select id="sender_age_group" class="form-select">
+                        <option value="18-25">18-25</option>
+                        <option value="26-35">26-35</option>
+                        <option value="36-45">36-45</option>
+                        <option value="46-60">46-60</option>
+                        <option value="60+">60+</option>
+                    </select>
+                </div>
+
+                <!-- Receiver Age Group -->
+                <div class="mb-3">
+                    <label class="form-label">Receiver Age Group</label>
+                    <select id="receiver_age_group" class="form-select">
+                        <option value="18-25">18-25</option>
+                        <option value="26-35">26-35</option>
+                        <option value="36-45">36-45</option>
+                        <option value="46-60">46-60</option>
+                        <option value="60+">60+</option>
+                    </select>
+                </div>
+
+                <!-- Sender State -->
+                <div class="mb-3">
+                    <label class="form-label">Sender State</label>
+                    <select id="sender_state" class="form-select">
+                        <option>Select State</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and
+                            Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Ladakh">Ladakh</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                    </select>
+                </div>
+
+                <!-- Sender Bank -->
+                <div class="mb-3">
+                    <label class="form-label">Sender Bank</label>
+                    <select id="sender_bank" class="form-select">
+                        <option>Select Bank</option>
+                        <option value="Axis">Axis</option>
+                        <option value="HDFC">HDFC</option>
+                        <option value="ICICI">ICICI</option>
+                        <option value="IndusInd">IndusInd</option>
+                        <option value="Kotak">Kotak</option>
+                        <option value="PNB">PNB</option>
+                        <option value="SBI">SBI</option>
+                        <option value="Yes Bank">Yes Bank</option>
+                    </select>
+                </div>
+
+                <!-- Receiver Bank -->
+                <div class="mb-3">
+                    <label class="form-label">Receiver Bank</label>
+                    <select id="receiver_bank" class="form-select">
+                        <option>Select Bank</option>
+                        <option value="Axis">Axis</option>
+                        <option value="HDFC">HDFC</option>
+                        <option value="ICICI">ICICI</option>
+                        <option value="IndusInd">IndusInd</option>
+                        <option value="Kotak">Kotak</option>
+                        <option value="PNB">PNB</option>
+                        <option value="SBI">SBI</option>
+                        <option value="Yes Bank">Yes Bank</option>
+                    </select>
+                </div>
+
+                <!-- Device Type -->
+                <div class="mb-3">
+                    <label class="form-label">Device Type</label>
+                    <select id="device_type" class="form-select">
+                        <option value="Android">Android</option>
+                        <option value="iOS">iOS</option>
+                        <option value="Web">Web</option>
+                    </select>
+                </div>
+
+                <!-- Network Type -->
+                <div class="mb-3">
+                    <label class="form-label">Network Type</label>
+                    <select id="network_type" class="form-select">
+                        <option value="2G">2G</option>
+                        <option value="3G">3G</option>
+                        <option value="4G">4G</option>
+                        <option value="5G">5G</option>
+                        <option value="WiFi">WiFi</option>
+                    </select>
+                </div>
+
+                <!--Hour of Day -->
+                <div class="mb-3">
+                    <label class="form-label">Hour of Day</label>
+                    <input type="number" id="hour_of_day" class="form-control" required>
+                </div>
+
+                <!-- Day of Week -->
+                <div class="mb-3">
+                    <label class="form-label">Day of Week</label>
+                    <select id="day_of_week" class="form-select">
+                        <option>Select</option>
+                        <option value="Sunday">Sunday</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </select>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary w-100">
+                    Check Transaction
+                </button>
+            </form>
+
+            <div id="result" class="mt-4 text-center fw-bold"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("upiForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const now = new Date();
+            const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const day = document.getElementById("day_of_week").value;
+
+            const data = {
+                transaction_type: document.getElementById("transaction_type").value,
+                merchant_category: document.getElementById("merchant_category").value,
+                amount: Number(document.getElementById("amount").value),
+                transaction_status: document.getElementById("transaction_status").value,
+                sender_age_group: document.getElementById("sender_age_group").value,
+                receiver_age_group: document.getElementById("receiver_age_group").value,
+                sender_state: document.getElementById("sender_state").value,
+                sender_bank: document.getElementById("sender_bank").value,
+                receiver_bank: document.getElementById("receiver_bank").value,
+                device_type: document.getElementById("device_type").value,
+                network_type: document.getElementById("network_type").value,
+                hour_of_day: document.getElementById("hour_of_day").value,
+                day_of_week: document.getElementById("day_of_week").value,
+                is_weekend: (day === "Sunday" || day === "Saturday") ? 1 : 0
+            };
+
+            const response = await fetch("/predict", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            const resultData = await response.json();
+            const resultDiv = document.getElementById("result");
+
+            if (resultData.error) {
+                resultDiv.textContent = "Error: " + resultData.error;
+                resultDiv.className = "text-warning fw-bold";
+                return;
+            }
+
+            if (resultData.fraud === 1) {
+                resultDiv.textContent = `⚠️ Fraud Detected | Risk: ${resultData.probability}`;
+                resultDiv.className = "text-danger fw-bold";
+            } else {
+                resultDiv.textContent = `✅ Safe Transaction | Risk: ${resultData.probability}`;
+                resultDiv.className = "text-success fw-bold";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
