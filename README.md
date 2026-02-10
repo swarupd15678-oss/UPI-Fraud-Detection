@@ -98,16 +98,21 @@ Target variable:
 fraud (0 = Safe, 1 = Fraud)
 
 🚀 How to Run Locally
+
 1️⃣ Clone the Repository
 git clone https://github.com/swarupd15678-oss/upi-fraud-detection.git
 cd upi-fraud-detection
+
 2️⃣ Create Virtual Environment (Optional but Recommended)
 python -m venv venv
 source venv/bin/activate        # On Windows: venv\Scripts\activate
+
 3️⃣ Install Dependencies
 pip install -r requirements.txt
+
 4️⃣ Run the Flask App
 python app.py
+
 5️⃣ Open in Browser
 http://127.0.0.1:5000/
 🔌 API Endpoint
@@ -117,19 +122,33 @@ Request (JSON):
 
 {
   "amount": 5000,
+  
   "transaction_type": "P2P",
+  
   "merchant_category": "Retail",
+  
   "transaction_status": "Success",
+  
   "sender_age_group": "26-35",
+  
   "receiver_age_group": "36-45",
+  
   "sender_state": "Maharashtra",
+  
   "sender_bank": "SBI",
+  
   "receiver_bank": "HDFC",
+  
   "device_type": "Old",
+  
   "network_type": "4G",
+  
   "hour_of_day": 14,
+  
   "day_of_week": "Monday",
+  
   "is_weekend": 0
+  
 }
 
 Response:
