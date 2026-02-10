@@ -1,5 +1,4 @@
-🚨 UPI Fraud Detection System
-
+<h1 align="center">🚨 UPI Fraud Detection System</h1>
 A Machine Learning–powered web application that detects potentially fraudulent UPI transactions in real time.
 Built using Python, Flask, Scikit-learn, Bootstrap, and JavaScript, this system takes transaction details from a user-friendly UI and predicts whether the transaction is Safe or Fraudulent, along with a risk probability.
 
