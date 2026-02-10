@@ -45,7 +45,8 @@ Supervised Classification Model
 
 Trained on synthetic UPI transaction dataset (2024)
 
-📂 Project Structure
+<h2>📂 Project Structure</h2>
+<pre>
 upi-fraud-detection/
 │
 ├── app.py                 # Flask backend
@@ -63,7 +64,7 @@ upi-fraud-detection/
 │
 └── README.md
 📊 Dataset Description
-
+</pre>
 The model is trained on a UPI transaction dataset containing features such as:
 
 Transaction amount (INR)
